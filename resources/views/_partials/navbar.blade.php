@@ -24,6 +24,7 @@
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+        <li><a href="{{route('data-table')}}"><i class="fa fa-book"></i> <span>Data Table</span></a></li>
+        <li><a href="{{route('form')}}"><i class="fa fa-book"></i> <span>Form</span></a></li>
       </ul>
     </section>
