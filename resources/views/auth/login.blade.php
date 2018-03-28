@@ -27,6 +27,7 @@
     <p class="login-box-msg">Sign in to start your session</p>
 
     <form action="{{ route('login') }}" method="post">
+        @csrf
       <div class="form-group has-feedback">
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
         @if ($errors->has('email'))
