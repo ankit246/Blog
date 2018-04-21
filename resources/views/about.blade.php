@@ -4,7 +4,7 @@
 @component('_partials.blog-header')
 <div class="site-heading">
   @slot('url')
-      img/home-bg.jpg
+       {{asset('img/'.$about->image)}}
   @endslot
   <h1>{{$about->title}}</h1>
 <span class="subheading">{{$about->sub_title}}</span>

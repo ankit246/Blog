@@ -52,11 +52,17 @@ class HomeController extends Controller
            'title' => 'required',
            'subTitle' => 'required'
        ]);
-
+       $name = Home::first()->image;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = public_path('img');
+            $name = 'homeImage.jpg';
+            $path = $request->image->storeAs(public_path('img'), $name);
+        }
        Home::first()->update([
            'title' => $request->title,
            'sub_title' => $request->subTitle,
-           'image' => $request->image
+           'image' => $name
            ]);
        return redirect()->back()->with('flash_success', 'Home page content edited successfully.');    
     }

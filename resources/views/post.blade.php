@@ -1,7 +1,7 @@
 @extends('layouts.blog')
 @component('_partials.blog-header')
 	@slot('url')
-		abc
+		 {{asset('img/'.$post->image)}}
 	@endslot
 	<div class="page-heading">
 	 <h1>Man must explore, and this is exploration at its greatest</h1>

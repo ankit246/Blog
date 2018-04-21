@@ -2,7 +2,7 @@
 
 @component('_partials.blog-header')
 	@slot('url')
-		abc
+		 {{asset('img/'.$contact->image)}}
 	@endslot
 	<div class="page-heading">
 	  <h1>{{$contact->title}}</h1>

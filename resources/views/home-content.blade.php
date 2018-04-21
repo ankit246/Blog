@@ -13,7 +13,7 @@
   <!-- Main content -->
     <section class="content">
       <div class="tab-pane active" id="settings">
-                <form class="form-horizontal" method="post" action="{{route('home.content')}}">
+                <form class="form-horizontal" method="post" action="{{route('home.content')}}" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Title</label>
