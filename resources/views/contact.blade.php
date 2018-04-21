@@ -5,8 +5,8 @@
 		abc
 	@endslot
 	<div class="page-heading">
-	  <h1>Contact Me</h1>
-	  <span class="subheading">Have questions? I have answers.</span>
+	  <h1>{{$contact->title}}</h1>
+	  <span class="subheading">{{$contact->sub_title}}</span>
 	</div>
 @endcomponent
 
@@ -14,7 +14,7 @@
 <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+          <p>{{$contact->content}}</p>
           <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
           <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
           <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->

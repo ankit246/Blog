@@ -31,6 +31,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+  @include('_partials.message')
     @yield('content')
   </div>
   <!-- /.content-wrapper -->

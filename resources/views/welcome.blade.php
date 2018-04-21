@@ -6,8 +6,8 @@
   @slot('url')
       img/home-bg.jpg
   @endslot
-  <h1>Clean Blog</h1>
-  <span class="subheading">A Blog Theme by Start Bootstrap</span>
+  <h1>{{$home->title}}</h1>
+  <span class="subheading">{{$home->sub_title}}</span>
 </div>
 @endcomponent
 <div class="container">
