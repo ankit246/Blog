@@ -24,3 +24,14 @@ Route::get('/data-table', function(){
 Route::get('/form', function(){
 	return view('forms');
 })->name('form');
+Route::get('/about', function(){
+	return view('about');
+})->name('about');
+
+Route::get('/contact', function(){
+	return view('contact');
+})->name('contact');
+
+Route::get('/post', function(){
+	return view('post');
+})->name('post');
