@@ -33,7 +33,7 @@
                     <label for="inputName" class="col-sm-2 control-label">Content</label>
 
                     <div class="col-sm-8">
-                      <textarea type="text" class="form-control" name="content" id="content">{{old('content') ?? $about->content}}</textarea>
+                      <textarea type="text" class="form-control" name="content" id="content">{!! old('content') ?? $about->content !!}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
@@ -53,3 +53,9 @@
     </section>
     @endsection
 <!-- ./wrapper -->
+@section('scripts')
+		<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <script>
+			CKEDITOR.replace( 'content' );
+		</script>
+@endsection

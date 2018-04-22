@@ -7,6 +7,7 @@ use App\Models\Home;
 use App\Models\About;
 use App\Models\Post;
 use App\Models\Contact;
+use App\Models\ContactRequest;
 
 class HomeController extends Controller
 {
@@ -124,12 +125,129 @@ class HomeController extends Controller
            'content' => 'required'
        ]);
 
-       Contact::first()->update([
+      $contact = Contact::first()->update([
            'title' => $request->title,
            'sub_title' => $request->subTitle,
            'image' => $request->image,
            'content' => $request->content
            ]);
        return redirect()->back()->with('flash_success', 'Contact page content edited successfully.');    
+    }
+
+    /**
+     * Get the post list
+     * 
+     * @return \Illuminate\Http\Response 
+     */
+    public function postList()
+    {
+        $post = Post::all();
+        return view('post-list', compact('post'));
+    }
+
+    /**
+     * Get the post
+     * 
+     * @param integer $postId
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function post($postId)
+    {
+        $post = Post::find($postId);
+        return view('post-content', compact('post'));
+    }
+
+    /**
+     * Update Post
+     * 
+     * @param integer $postId
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function postUpdate(Request $request, $postId)
+    {
+        $request->validate([
+            'title' => 'required',
+            'subTitle' => 'required',
+            'content' => 'required',
+            'createdBy' => 'required'
+        ]);
+        Post::where('id', $postId)->update([
+            'title' => $request->title,
+            'sub_title' => $request->subTitle,
+            'image' => $request->image,
+            'content' => $request->content,
+            'created_by' => $request->createdBy
+        ]);
+        return redirect()->back()->with('flash_success', 'Your post '.$request->title.' has been updated successfully.');
+    }
+
+    /**
+     * Show new post create form
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function addPost()
+    {
+        return view('add-post');
+    }
+    /**
+     * Create a new Post
+     * 
+     * @param integer $postId
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function storePost(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'subTitle' => 'required',
+            'content' => 'required',
+            'createdBy' => 'required'
+        ]);
+        Post::create([
+            'title' => $request->title,
+            'sub_title' => $request->subTitle,
+            'image' => $request->image,
+            'content' => $request->content,
+            'created_by' => $request->createdBy
+        ]);
+        return redirect()->route('post.list')->with('flash_success', 'Your post '.$request->title.' has been updated successfully.');
+    }
+    
+    /**
+     * Store contact me
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function storeContactMe(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required'
+        ]);
+
+        ContactRequest::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message
+        ]);
+        return redirect()->back()->with('flash_success', 'Your request is submitted successfully.');
+    }
+
+    /**
+     * Contact me list
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function contactList()
+    {
+        $contact = ContactRequest::get();
+        return view('contact-list', compact('contact'));
     }
 }

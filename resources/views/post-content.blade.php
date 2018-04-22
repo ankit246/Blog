@@ -13,27 +13,34 @@
   <!-- Main content -->
     <section class="content">
       <div class="tab-pane active" id="settings">
-                <form class="form-horizontal" method="post" action="{{route('contact.content')}}">
+                <form class="form-horizontal" method="post" action="{{route('post.content.edit',['postId' => $post->id])}}">
                   @csrf
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Title</label>
 
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" value="{{old('title') ?? $contact->title}}" name="title" id="title" placeholder="Title">
+                      <input type="text" class="form-control" value="{{old('title') ?? $post->title}}" name="title" id="title" placeholder="Title">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Sub Title</label>
 
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" value="{{old('subTitle') ?? $contact->sub_title}}" name="subTitle" id="subTitle" placeholder="Sub Title">
+                      <input type="text" class="form-control" value="{{old('subTitle') ?? $post->sub_title}}" name="subTitle" id="subTitle" placeholder="Sub Title">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Content</label>
 
                     <div class="col-sm-8">
-                      <textarea type="text" class="form-control" name="content" id="content">{{old('content') ?? $contact->content}}</textarea>
+                      <textarea type="text" class="form-control" name="content" id="content">{{old('content') ?? $post->content}}</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Created By:</label>
+
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" value="{{old('createdBy') ?? $post->created_by}}" name="createdBy" id="subTitle" placeholder="Sub Title">
                     </div>
                   </div>
                   <div class="form-group">

@@ -20,9 +20,9 @@
           </a>
         </li>
         <li><a href="{{route('home.content')}}"><i class="fa fa-book"></i> <span>Home</span></a></li>
-        <li><a href="#"><i class="fa fa-book"></i> <span>Post</span></a></li>
+        <li><a href="{{route('post.list')}}"><i class="fa fa-book"></i> <span>Post</span></a></li>
         <li><a href="{{route('about.content')}}"><i class="fa fa-book"></i> <span>About</span></a></li>
         <li><a href="{{route('contact.content')}}"><i class="fa fa-book"></i> <span>Contact Me</span></a></li>
-        <li><a href="#"><i class="fa fa-book"></i> <span>Contact Request</span></a></li>
+        <li><a href="{{route('contact.list')}}"><i class="fa fa-book"></i> <span>Contact Request</span></a></li>
       </ul>
     </section>

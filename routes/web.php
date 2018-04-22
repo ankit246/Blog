@@ -28,6 +28,15 @@ Route::post('/about-content', 'HomeController@aboutContentUpdate')->name('about.
 Route::get('/contact-content', 'HomeController@contactContent')->name('contact.content');
 Route::post('/contact-content', 'HomeController@contactContentUpdate')->name('contact.content');
 
+Route::get('/post-list','HomeController@postList')->name('post.list');
+Route::get('/post-content-edit/{postId}','HomeController@post')->name('post.content.edit');
+Route::post('/post-content-edit/{postId}','HomeController@postUpdate')->name('post.content.edit');
+Route::get('/add-post','HomeController@addPost')->name('add.post');
+Route::post('/add-post','HomeController@storePost')->name('add.post');
+
+Route::post('/contact-me','HomeController@storeContactMe')->name('contact.me');
+Route::get('/contact-list','HomeController@contactList')->name('contact.list');
+
 /* Route::get('/data-table', function(){
 	return view('data-tables');
 })->name('data-table');
